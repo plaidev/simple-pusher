@@ -1,0 +1,10 @@
+{
+  "name": "simple-pusher",
+  "version": "0.0.1",
+  "description": "simple socket.io wrapper for microservices",
+  "author": "plaidev",
+  "license": "MIT",
+  "devDependencies": {
+    "lerna": "3.14.1"
+  }
+}

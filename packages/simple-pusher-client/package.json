@@ -1,0 +1,22 @@
+{
+  "name": "simple-pusher-client",
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/plaidev/simple-pusher"
+  },
+  "keywords": [
+    "websocket"
+  ],
+  "author": "plaidev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/plaidev/simple-pusher/issues"
+  },
+  "homepage": "https://github.com/plaidev/simple-pusher",
+  "dependencies": {
+    "socket.io-client": "2.2.0"
+  }
+}
