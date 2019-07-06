@@ -2,15 +2,17 @@ import io from 'socket.io-client';
 
 class SimplePusherClient {
   constructor(socketUrl, options = {}) {
-    const { namespace } = Object.assign(
+    const { namespace, ioOptions } = Object.assign(
       {
-        namespace: ''
+        namespace: '',
+        ioOptions: {}
       },
       options
     );
 
-    this.socketUrl = socketUrl;
+    this.socketUrl = socketUrl || '';
     this.namespace = namespace;
+    this.ioOptions = ioOptions;
     this.socket = null;
     this.events = [];
   }
@@ -62,7 +64,7 @@ class SimplePusherClient {
   }
 
   _createSocket() {
-    this.socket = io(this.socketUrl + this.namespace);
+    this.socket = io(this.socketUrl + this.namespace, ioOptions);
 
     this.socket.on('error', err => {
       console.error('socket error: ' + err);
