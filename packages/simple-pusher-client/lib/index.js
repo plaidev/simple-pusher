@@ -64,7 +64,7 @@ class SimplePusherClient {
   }
 
   _createSocket() {
-    this.socket = io(this.socketUrl + this.namespace, ioOptions);
+    this.socket = io(this.socketUrl + this.namespace, this.ioOptions);
 
     this.socket.on('error', err => {
       console.error('socket error: ' + err);
