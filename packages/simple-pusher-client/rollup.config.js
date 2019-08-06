@@ -1,16 +1,16 @@
-const pkg = require("./package.json");
+const pkg = require('./package.json');
 
 module.exports = {
-  input: "src/main.js",
+  input: 'src/main.js',
   output: [
     {
       file: pkg.main,
-      format: "cjs"
+      format: 'cjs',
     },
     {
       file: pkg.module,
-      format: "es"
-    }
+      format: 'es',
+    },
   ],
-  external: [...Object.keys(pkg.dependencies)]
+  external: [...Object.keys(pkg.dependencies)],
 };

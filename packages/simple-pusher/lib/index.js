@@ -2,9 +2,9 @@ class SimplePusher {
   constructor(server, socketIoOptions = {}) {
     const _socketIoOptions = Object.assign(
       {
-        serveClient: false
+        serveClient: false,
       },
-      socketIoOptions
+      socketIoOptions,
     );
 
     this.io = require('socket.io')(server, _socketIoOptions);

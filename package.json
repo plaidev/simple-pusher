@@ -4,7 +4,15 @@
   "description": "simple socket.io wrapper for microservices",
   "author": "plaidev",
   "license": "MIT",
+  "scripts": {
+    "format": "eslint . --fix"
+  },
   "devDependencies": {
-    "lerna": "3.14.1"
+    "eslint": "6.1.0",
+    "eslint-config-prettier": "6.0.0",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-prettier": "3.1.0",
+    "lerna": "3.14.1",
+    "prettier": "1.18.2"
   }
 }

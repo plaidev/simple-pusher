@@ -5,9 +5,9 @@ class SimplePusherClient {
     const { namespace, ioOptions } = Object.assign(
       {
         namespace: '',
-        ioOptions: {}
+        ioOptions: {},
       },
-      options
+      options,
     );
 
     this.socketUrl = socketUrl || '';
@@ -43,9 +43,9 @@ class SimplePusherClient {
 
     const { throwError } = Object.assign(
       {
-        throwError: true
+        throwError: true,
       },
-      options
+      options,
     );
 
     const listenerLength = this.socket.listeners(eventName).length;
@@ -79,7 +79,7 @@ class SimplePusherClient {
   }
 
   _join(eventName) {
-    this.socket.emit('join', { room: eventName }, (err, rooms) => {
+    this.socket.emit('join', { room: eventName }, err => {
       if (err) return console.error('cannot join room: ' + err);
     });
   }
