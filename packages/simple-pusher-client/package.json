@@ -4,6 +4,9 @@
   "description": "",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/plaidev/simple-pusher"
