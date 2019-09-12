@@ -15,6 +15,7 @@ class SimplePusherClient {
     this.ioOptions = ioOptions;
     this.socket = null;
     this.events = [];
+    this._debug = (localStorage.getItem('debug') || '').match('plaidev');
   }
 
   on(eventName, listener) {
@@ -37,7 +38,7 @@ class SimplePusherClient {
     }
 
     if (!this.socket) {
-      console.error('socket dose not exist');
+      this._log('socket dose not exist');
       return;
     }
 
@@ -67,11 +68,11 @@ class SimplePusherClient {
     this.socket = io(this.socketUrl + this.namespace, this.ioOptions);
 
     this.socket.on('error', err => {
-      console.error('socket error: ' + err);
+      this._log('socket error: ' + err);
     });
 
     this.socket.on('reconnect', () => {
-      console.log('reconnect');
+      this._log('reconnect');
       this.events.forEach(eventName => {
         this._join(eventName);
       });
@@ -80,18 +81,24 @@ class SimplePusherClient {
 
   _join(eventName) {
     this.socket.emit('join', { room: eventName }, err => {
-      if (err) return console.error('cannot join room: ' + err);
+      if (err) return this._log('cannot join room: ' + err);
     });
   }
 
   _leave(eventName) {
     this.socket.emit('leave', { room: eventName }, (err, rooms) => {
-      if (err) return console.error('cannot leave room: ', err);
+      if (err) return this._log('cannot leave room: ', err);
       if (rooms && rooms.length === 0 && this.events.length === 0) {
         this.socket.close();
         this.socket = null;
       }
     });
+  }
+
+  _log(...args) {
+    if (this._debug) {
+      console.log(...args);
+    }
   }
 }
 
