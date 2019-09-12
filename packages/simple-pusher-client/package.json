@@ -12,6 +12,7 @@
     "url": "git://github.com/plaidev/simple-pusher"
   },
   "scripts": {
+    "prepare": "npm run build",
     "build": "rollup -c rollup.config.js",
     "dev": "rollup -c rollup.config.js -w"
   },
