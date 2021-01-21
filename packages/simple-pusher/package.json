@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/plaidev/simple-pusher",
   "dependencies": {
-    "socket.io": "2.2.0"
+    "socket.io": "2.4.0"
   }
 }
